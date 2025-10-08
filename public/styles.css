@@ -56,6 +56,10 @@ h3 {
   text-align: center;
 }
 
+card {
+  align-items: center;
+}
+
 /* IMAGEM */
 .img-banner {
   width: 100%;

@@ -1,199 +1,191 @@
 // JSON
 const dadosLiterarios = {
-  autores: [
+  "autores": [
     {
-      id: 1,
-      nome: "Machado de Assis",
-      nacionalidade: "Brasileiro",
-      img: "img/machado.png",
-      biografia:
-        "Considerado um dos maiores escritores da literatura brasileira, fundador da Academia Brasileira de Letras.",
-      obras: [
+      "id": 1,
+      "nome": "Machado de Assis",
+      "nacionalidade": "Brasileiro",
+      "img": "img/machado.png",
+      "biografia": "Considerado um dos maiores escritores da literatura brasileira, fundador da Academia Brasileira de Letras.",
+      "obras": [
         {
-          titulo: "Dom Casmurro",
-          ano_publicacao: "1899",
-          img: "img/domcasmurro.jpg",
-          sinopse:
-            "Bentinho narra sua história marcada por ciúmes e dúvidas sobre a fidelidade de Capitu.",
+          "id": 101,
+          "titulo": "Dom Casmurro",
+          "ano_publicacao": "1899",
+          "img": "img/domcasmurro.jpg",
+          "sinopse": "Bentinho narra sua história marcada por ciúmes e dúvidas sobre a fidelidade de Capitu."
         },
         {
-          titulo: "Memórias Póstumas de Brás Cubas",
-          ano_publicacao: "1881",
-          img: "img/brascubas.jpg",
-          sinopse:
-            "Narrado por um defunto, o livro é uma crítica irônica à sociedade do século XIX.",
-        },
-      ],
+          "id": 102,
+          "titulo": "Memórias Póstumas de Brás Cubas",
+          "ano_publicacao": "1881",
+          "img": "img/brascubas.jpg",
+          "sinopse": "Narrado por um defunto, o livro é uma crítica irônica à sociedade do século XIX."
+        }
+      ]
     },
     {
-      id: 2,
-      nome: "Clarice Lispector",
-      nacionalidade: "Brasileira",
-      img: "img/clarice.jpg",
-      biografia:
-        "Autora de obras introspectivas e poéticas, é uma das vozes mais marcantes da literatura brasileira moderna.",
-      obras: [
+      "id": 2,
+      "nome": "Clarice Lispector",
+      "nacionalidade": "Brasileira",
+      "img": "img/clarice.jpg",
+      "biografia": "Autora de obras introspectivas e poéticas, é uma das vozes mais marcantes da literatura brasileira moderna.",
+      "obras": [
         {
-          titulo: "A Hora da Estrela",
-          ano_publicacao: "1977",
-          img: "img/estrela.jpg",
-          sinopse:
-            "A história de Macabéa, uma jovem nordestina que vive no Rio de Janeiro, contada com lirismo e crítica social.",
+          "id": 201,
+          "titulo": "A Hora da Estrela",
+          "ano_publicacao": "1977",
+          "img": "img/estrela.jpg",
+          "sinopse": "A história de Macabéa, uma jovem nordestina que vive no Rio de Janeiro, contada com lirismo e crítica social."
         },
         {
-          titulo: "Perto do Coração Selvagem",
-          ano_publicacao: "1943",
-          img: "img/perto.jpg",
-          sinopse:
-            "Romance de estreia que revela a complexidade emocional e filosófica da protagonista Joana.",
-        },
-      ],
+          "id": 202,
+          "titulo": "Perto do Coração Selvagem",
+          "ano_publicacao": "1943",
+          "img": "img/perto.jpg",
+          "sinopse": "Romance de estreia que revela a complexidade emocional e filosófica da protagonista Joana."
+        }
+      ]
     },
     {
-      id: 3,
-      nome: "Graciliano Ramos",
-      nacionalidade: "Brasileiro",
-      img: "img/graciliano.jpg",
-      biografia:
-        "Reconhecido por sua escrita seca e direta, retratou a vida no sertão nordestino com profundidade e realismo.",
-      obras: [
+      "id": 3,
+      "nome": "Graciliano Ramos",
+      "nacionalidade": "Brasileiro",
+      "img": "img/graciliano.jpg",
+      "biografia": "Reconhecido por sua escrita seca e direta, retratou a vida no sertão nordestino com profundidade e realismo.",
+      "obras": [
         {
-          titulo: "Vidas Secas",
-          ano_publicacao: "1938",
-          img: "img/vidassecas.jpg",
-          sinopse:
-            "A saga de uma família sertaneja em busca de sobrevivência, marcada pela seca e pela miséria.",
+          "id": 301,
+          "titulo": "Vidas Secas",
+          "ano_publicacao": "1938",
+          "img": "img/vidassecas.jpg",
+          "sinopse": "A saga de uma família sertaneja em busca de sobrevivência, marcada pela seca e pela miséria."
         },
         {
-          titulo: "São Bernardo",
-          ano_publicacao: "1934",
-          img: "img/saobernardo.jpg",
-          sinopse:
-            "A trajetória de Paulo Honório, um homem ambicioso que narra sua ascensão e queda pessoal.",
-        },
-      ],
+          "id": 302,
+          "titulo": "São Bernardo",
+          "ano_publicacao": "1934",
+          "img": "img/saobernardo.jpg",
+          "sinopse": "A trajetória de Paulo Honório, um homem ambicioso que narra sua ascensão e queda pessoal."
+        }
+      ]
     },
     {
-      id: 4,
-      nome: "Jorge Amado",
-      nacionalidade: "Brasileiro",
-      img: "img/jorge.jpg",
-      biografia:
-        "Um dos autores mais populares do Brasil, retratou com humor e crítica social a vida na Bahia, exaltando o povo, a cultura e os conflitos sociais.",
-      obras: [
+      "id": 4,
+      "nome": "Jorge Amado",
+      "nacionalidade": "Brasileiro",
+      "img": "img/jorge.jpg",
+      "biografia": "Um dos autores mais populares do Brasil, retratou com humor e crítica social a vida na Bahia, exaltando o povo, a cultura e os conflitos sociais.",
+      "obras": [
         {
-          titulo: "Capitães da Areia",
-          ano_publicacao: "1937",
-          img: "img/capitaes.jpg",
-          sinopse:
-            "A história de um grupo de meninos de rua em Salvador que vivem de pequenos crimes, mas também de sonhos e solidariedade.",
+          "id": 401,
+          "titulo": "Capitães da Areia",
+          "ano_publicacao": "1937",
+          "img": "img/capitaes.jpg",
+          "sinopse": "A história de um grupo de meninos de rua em Salvador que vivem de pequenos crimes, mas também de sonhos e solidariedade."
         },
         {
-          titulo: "Gabriela, Cravo e Canela",
-          ano_publicacao: "1958",
-          img: "img/gabriela.jpg",
-          sinopse:
-            "Gabriela, uma mulher sensual e livre, transforma a vida de uma cidade marcada por coronelismo e tradições conservadoras.",
-        },
-      ],
+          "id": 402,
+          "titulo": "Gabriela, Cravo e Canela",
+          "ano_publicacao": "1958",
+          "img": "img/gabriela.jpg",
+          "sinopse": "Gabriela, uma mulher sensual e livre, transforma a vida de uma cidade marcada por coronelismo e tradições conservadoras."
+        }
+      ]
     },
     {
-      id: 5,
-      nome: "Manuel Bandeira",
-      nacionalidade: "Brasileiro",
-      img: "img/bandeira.jpg",
-      biografia:
-        "Poeta modernista que soube unir lirismo, simplicidade e profundidade, com temas como morte, infância e o cotidiano.",
-      obras: [
+      "id": 5,
+      "nome": "Manuel Bandeira",
+      "nacionalidade": "Brasileiro",
+      "img": "img/bandeira.jpg",
+      "biografia": "Poeta modernista que soube unir lirismo, simplicidade e profundidade, com temas como morte, infância e o cotidiano.",
+      "obras": [
         {
-          titulo: "Libertinagem",
-          ano_publicacao: "1930",
-          img: "img/libertinagem.jpg",
-          sinopse:
-            "Coletânea de poemas que marca o auge do modernismo de Bandeira, com linguagem coloquial e temas existenciais.",
+          "id": 501,
+          "titulo": "Libertinagem",
+          "ano_publicacao": "1930",
+          "img": "img/libertinagem.jpg",
+          "sinopse": "Coletânea de poemas que marca o auge do modernismo de Bandeira, com linguagem coloquial e temas existenciais."
         },
         {
-          titulo: "Estrela da Vida Inteira",
-          ano_publicacao: "1966",
-          img: "img/estreladavida.jpg",
-          sinopse:
-            "Antologia poética que reúne os principais poemas do autor, revelando sua trajetória lírica e humana.",
-        },
-      ],
+          "id": 502,
+          "titulo": "Estrela da Vida Inteira",
+          "ano_publicacao": "1966",
+          "img": "img/estreladavida.jpg",
+          "sinopse": "Antologia poética que reúne os principais poemas do autor, revelando sua trajetória lírica e humana."
+        }
+      ]
     },
     {
-      id: 6,
-      nome: "Mário de Andrade",
-      nacionalidade: "Brasileiro",
-      img: "img/mario.jpg",
-      biografia:
-        "Figura central do modernismo brasileiro, foi escritor, crítico, musicólogo e defensor da cultura nacional.",
-      obras: [
+      "id": 6,
+      "nome": "Mário de Andrade",
+      "nacionalidade": "Brasileiro",
+      "img": "img/mario.jpg",
+      "biografia": "Figura central do modernismo brasileiro, foi escritor, crítico, musicólogo e defensor da cultura nacional.",
+      "obras": [
         {
-          titulo: "Macunaíma",
-          ano_publicacao: "1928",
-          img: "img/macunaima.jpg",
-          sinopse:
-            "A saga do herói sem caráter que percorre o Brasil em busca de um amuleto mágico, misturando mitos indígenas e crítica social.",
+          "id": 601,
+          "titulo": "Macunaíma",
+          "ano_publicacao": "1928",
+          "img": "img/macunaima.jpg",
+          "sinopse": "A saga do herói sem caráter que percorre o Brasil em busca de um amuleto mágico, misturando mitos indígenas e crítica social."
         },
         {
-          titulo: "Pauliceia Desvairada",
-          ano_publicacao: "1922",
-          img: "img/pauliceia.jpg",
-          sinopse:
-            "Livro de poemas que inaugura o modernismo no Brasil, com versos livres e uma visão irreverente da cidade de São Paulo.",
-        },
-      ],
+          "id": 602,
+          "titulo": "Pauliceia Desvairada",
+          "ano_publicacao": "1922",
+          "img": "img/pauliceia.jpg",
+          "sinopse": "Livro de poemas que inaugura o modernismo no Brasil, com versos livres e uma visão irreverente da cidade de São Paulo."
+        }
+      ]
     },
     {
-      id: 7,
-      nome: "Cecília Meireles",
-      nacionalidade: "Brasileira",
-      img: "img/cecilia.jpg",
-      biografia:
-        "Poeta lírica e delicada, sua obra é marcada por musicalidade, espiritualidade e reflexões sobre o tempo e a existência.",
-      obras: [
+      "id": 7,
+      "nome": "Cecília Meireles",
+      "nacionalidade": "Brasileira",
+      "img": "img/cecilia.jpg",
+      "biografia": "Poeta lírica e delicada, sua obra é marcada por musicalidade, espiritualidade e reflexões sobre o tempo e a existência.",
+      "obras": [
         {
-          titulo: "Romanceiro da Inconfidência",
-          ano_publicacao: "1953",
-          img: "img/romanceiro.jpg",
-          sinopse:
-            "Poemas que narram os eventos da Inconfidência Mineira com lirismo e profundidade histórica.",
+          "id": 701,
+          "titulo": "Romanceiro da Inconfidência",
+          "ano_publicacao": "1953",
+          "img": "img/romanceiro.jpg",
+          "sinopse": "Poemas que narram os eventos da Inconfidência Mineira com lirismo e profundidade histórica."
         },
         {
-          titulo: "Viagem",
-          ano_publicacao: "1939",
-          img: "img/viagem.jpg",
-          sinopse:
-            "Obra-prima da autora, com poemas que exploram o universo interior e a busca por transcendência.",
-        },
-      ],
+          "id": 702,
+          "titulo": "Viagem",
+          "ano_publicacao": "1939",
+          "img": "img/viagem.jpg",
+          "sinopse": "Obra-prima da autora, com poemas que exploram o universo interior e a busca por transcendência."
+        }
+      ]
     },
     {
-      id: 8,
-      nome: "Carlos Drummond de Andrade",
-      nacionalidade: "Brasileiro",
-      img: "img/drummond.jpg",
-      biografia:
-        "Um dos maiores poetas da língua portuguesa, sua obra mescla ironia, melancolia e crítica social com profundidade filosófica.",
-      obras: [
+      "id": 8,
+      "nome": "Carlos Drummond de Andrade",
+      "nacionalidade": "Brasileiro",
+      "img": "img/drummond.jpg",
+      "biografia": "Um dos maiores poetas da língua portuguesa, sua obra mescla ironia, melancolia e crítica social com profundidade filosófica.",
+      "obras": [
         {
-          titulo: "Alguma Poesia",
-          ano_publicacao: "1930",
-          img: "img/alguma.jpg",
-          sinopse:
-            "Primeiro livro de Drummond, traz o famoso poema 'No meio do caminho' e marca o início de sua voz singular.",
+          "id": 801,
+          "titulo": "Alguma Poesia",
+          "ano_publicacao": "1930",
+          "img": "img/alguma.jpg",
+          "sinopse": "Primeiro livro de Drummond, traz o famoso poema 'No meio do caminho' e marca o início de sua voz singular."
         },
         {
-          titulo: "A Rosa do Povo",
-          ano_publicacao: "1945",
-          img: "img/rosa.jpg",
-          sinopse:
-            "Poemas escritos durante a Segunda Guerra Mundial, com forte crítica social e engajamento político.",
-        },
-      ],
-    },
-  ],
+          "id": 802,
+          "titulo": "A Rosa do Povo",
+          "ano_publicacao": "1945",
+          "img": "img/rosa.jpg",
+          "sinopse": "Poemas escritos durante a Segunda Guerra Mundial, com forte crítica social e engajamento político."
+        }
+      ]
+    }
+  ]
 };
 
 // JavaScript
@@ -219,10 +211,13 @@ function carregaAutor() {
     let card = `
       <div class="col-12 col-md-6 col-lg-3">
         <div class="card h-100 mb-4 shadow-sm">
-          <img src="${autor.img}" class="card-img-top" alt="${autor.nome}">
+          <img src="${autor.img}" class="card-img-top mx-auto d-block" alt="${autor.nome}">
           <div class="card-body">
             <h5 class="card-title">${autor.nome}</h5>
             <p class="card-text">${autor.biografia}</p>
+            <div class="text-center mt-3">
+              <a href="detalhes.html?id=${autor.id}" class="btn btn-primary mt-3">Ver detalhes</a>
+            </div>
           </div>
         </div>
       </div>
@@ -246,12 +241,15 @@ function carregaObras() {
       const card = `
         <div class="col-12 col-md-6 col-lg-3">
           <div class="card h-100 mb-4 shadow-sm">
-            <img src="${obra.img}" class="card-img-top" alt="${obra.titulo}">
+            <img src="${obra.img}" class="card-img-top mx-auto d-block" alt="${obra.titulo}">
             <div class="card-body">
               <h5 class="card-title">${obra.titulo}</h5>
               <p class="card-text"><strong>Autor:</strong> ${autor.nome}</p>
               <p class="card-text"><strong>Ano:</strong> ${obra.ano_publicacao}</p>
               <p class="card-text">${obra.sinopse}</p>
+              <div class="text-center mt-3">
+              <a href="detalhes.html?id=${obra.id}" class="btn btn-primary mt-3">Ver detalhes</a>
+            </div>
             </div>
           </div>
         </div>
@@ -261,3 +259,113 @@ function carregaObras() {
     }
   }
 }
+
+//detalhes autores
+function carregaDetalhes() {
+  const container = document.getElementById("detalhesContainer");
+  container.innerHTML = "";
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const id = parseInt(urlParams.get("id"));
+
+  const autor = dadosLiterarios.autores.find(a => a.id === id);
+
+  if (!autor) {
+    container.innerHTML = "<p>Autor não encontrado.</p>";
+    return;
+  }
+
+  let obrasHTML = "";
+  for (let i = 0; i < autor.obras.length; i++) {
+    const obra = autor.obras[i];
+    obrasHTML += `
+      <li class="list-group-item">
+        <strong>${obra.titulo}</strong> (${obra.ano_publicacao})<br>
+        <small>${obra.sinopse}</small>
+      </li>
+    `;
+  }
+
+  const card = `
+    <div class="col-md-8">
+      <div class="card shadow-sm">
+        <img src="${autor.img}" class="card-img-top mx-auto d-block" alt="${autor.nome}">
+        <div class="card-body">
+          <h3 class="card-title">${autor.nome}</h3>
+          <p><strong>Naturalidade:</strong> ${autor.naturalidade}</p>
+          <p>${autor.biografia}</p>
+          <h5 class="mt-4">Obras:</h5>
+          <ul class="list-group list-group-flush">${obrasHTML}</ul>
+        </div>
+      </div>
+      <div class="text-start mt-4">
+        <button class="btn btn-secondary" onclick="window.history.back()">Voltar</button>
+      </div>
+    </div>
+
+  `;
+
+  container.innerHTML = card;
+}
+
+//detalhes obras
+function carregaDetalhesObra() {
+  const container = document.getElementById("detalhesObraContainer");
+  container.innerHTML = "";
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const id = parseInt(urlParams.get("id"));
+
+  let obraEncontrada = null;
+  let autorEncontrado = null;
+
+  for (let i = 0; i < dadosLiterarios.autores.length; i++) {
+    const autor = dadosLiterarios.autores[i];
+    for (let j = 0; j < autor.obras.length; j++) {
+      const obra = autor.obras[j];
+      if (obra.id === id) {
+        obraEncontrada = obra;
+        autorEncontrado = autor;
+        break;
+      }
+    }
+    if (obraEncontrada) break;
+  }
+
+  if (!obraEncontrada) {
+    container.innerHTML = "<p>Obra não encontrada.</p>";
+    return;
+  }
+
+  const card = `
+    <div class="col-md-8">
+      <div class="card shadow-sm">
+        <img src="${obraEncontrada.img}" class="card-img-top mx-auto d-block" alt="${obraEncontrada.titulo}">
+        <div class="card-body">
+          <h3 class="card-title">${obraEncontrada.titulo}</h3>
+          <p><strong>Autor:</strong> ${autorEncontrado.nome}</p>
+          <p><strong>Ano de publicação:</strong> ${obraEncontrada.ano_publicacao}</p>
+          <p>${obraEncontrada.sinopse}</p>
+        </div>
+      </div>
+      <div class="text-start mt-4">
+        <button class="btn btn-secondary" onclick="window.history.back()">Voltar</button>
+      </div>
+    </div>
+  `;
+
+  container.innerHTML = card;
+}
+
+//Página Detalhes
+document.addEventListener("DOMContentLoaded", function () {
+  const id = parseInt(new URLSearchParams(window.location.search).get("id"));
+
+  if (dadosLiterarios.autores.some(a => a.id === id)) {
+    carregaDetalhes();
+  } else if (dadosLiterarios.autores.some(a => a.obras.some(o => o.id === id))) {
+    carregaDetalhesObra();
+  } else {
+    document.getElementById("detalhesContainer").innerHTML = "<p>ID não encontrado.</p>";
+  }
+});
