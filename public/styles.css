@@ -64,6 +64,13 @@ h2 {
   display: block;
 }
 
+.logo {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  margin-right: 20px;
+}
+
 /*  MAIN INDEX */
 
 .bg-index {
