@@ -1,143 +1,176 @@
 {
-    "livros": [
+  "autores": [
+    {
+      "id": 1,
+      "nome": "Machado de Assis",
+      "nacionalidade": "Brasileiro",
+      "img": "img/machado.png",
+      "biografia": "Considerado um dos maiores escritores da literatura brasileira, fundador da Academia Brasileira de Letras.",
+      "obras": [
         {
-            "id": 1,
-            "titulo": "O Ladrão de Raios",
-            "ano_publicacao": "2005",
-            "img": "img/livro1.jpg",
-            "saga": "Percy Jackson e os Olimpianos",
-            "sinopse": "Percy Jackson é um garoto de 12 anos que tem TDAH e dislexia. Ele está em uma excursão escolar quando percebe que deuses e monstros da mitologia grega parecem saltar das páginas de seus livros. Ele é acusado de roubar o raio-mestre de Zeus, uma arma poderosa. Para provar sua inocência e evitar uma guerra no Monte Olimpo, ele e seus amigos, o sátiro Grover e a semideusa Annabeth, embarcam em uma jornada perigosa."
+          "titulo": "Dom Casmurro",
+          "ano_publicacao": "1899",
+          "img": "img/domcasmurro.jpg",
+          "sinopse": "Bentinho narra sua história marcada por ciúmes e dúvidas sobre a fidelidade de Capitu."
         },
         {
-            "id": 2,
-            "titulo": "O Mar de Monstros",
-            "ano_publicacao": "2006",
-            "img": "img/livro2.jpg",
-            "saga": "Percy Jackson e os Olimpianos",
-            "sinopse": "Percy, Annabeth e Grover partem em uma nova missão: encontrar o lendário Velocino de Ouro, a única coisa capaz de salvar as fronteiras do Acampamento Meio-Sangue, que estão ameaçadas por monstros. Para isso, precisam atravessar o temido Mar de Monstros."
-        },
-        {
-            "id": 3,
-            "titulo": "A Maldição do Titã",
-            "ano_publicacao": "2007",
-            "img": "img/livro3.jpg",
-            "saga": "Percy Jackson e os Olimpianos",
-            "sinopse": "Percy se junta a Annabeth, Grover e Thalia, a recém-chegada filha de Zeus, para resgatar a deusa Ártemis, que foi sequestrada. Eles precisam enfrentar o terrível titã Atlas e impedir que a profecia se cumpra, o que poderá levar à queda do Olimpo."
-        },
-        {
-            "id": 4,
-            "titulo": "A Batalha do Labirinto",
-            "ano_publicacao": "2008",
-            "img": "img/livro4.jpg",
-            "saga": "Percy Jackson e os Olimpianos",
-            "sinopse": "Cronos e seu exército preparam um ataque para invadir o Acampamento Meio-Sangue através do Labirinto de Dédalo. Percy e seus amigos precisam encontrar Dédalo antes dos titãs para impedir a invasão."
-        },
-        {
-            "id": 5,
-            "titulo": "O Último Olimpiano",
-            "ano_publicacao": "2009",
-            "img": "img/livro5.jpg",
-            "saga": "Percy Jackson e os Olimpianos",
-            "sinopse": "A grande guerra entre deuses e titãs finalmente chega a Nova York. Percy e os semideuses do Acampamento Meio-Sangue se reúnem para defender o Monte Olimpo do ataque de Cronos e seu exército, em uma batalha decisiva pelo destino do mundo."
+          "titulo": "Memórias Póstumas de Brás Cubas",
+          "ano_publicacao": "1881",
+          "img": "img/brascubas.jpg",
+          "sinopse": "Narrado por um defunto, o livro é uma crítica irônica à sociedade do século XIX."
         }
-    ],
-    "cinema": [
+      ]
+    },
+    {
+      "id": 2,
+      "nome": "Clarice Lispector",
+      "nacionalidade": "Brasileira",
+      "img": "img/clarice.jpg",
+      "biografia": "Autora de obras introspectivas e poéticas, é uma das vozes mais marcantes da literatura brasileira moderna.",
+      "obras": [
         {
-            "id": 6,
-            "tipo": "Filme",
-            "titulo": "Percy Jackson e o Ladrão de Raios",
-            "ano_adaptação": "2010",
-            "img": "img/filme1.jpg",
-            "sinopse": "O adolescente Percy Jackson descobre ser um semideus, filho de Poseidon. Ele é acusado de roubar o raio-mestre de Zeus, a arma mais poderosa do Olimpo, e embarca em uma jornada para provar sua inocência.",
-            "diretor": "Chris Columbus",
-            "elenco": [
-                "Percy Jackson: Logan Lerman",
-                "Annabeth Chase: Alexandra Daddario",
-                "Grover Underwood: Brandon T. Jackson",
-                "Luke Castellan: Jake Abel"
-            ]
+          "titulo": "A Hora da Estrela",
+          "ano_publicacao": "1977",
+          "img": "img/ahoradaestrela.jpg",
+          "sinopse": "A história de Macabéa, uma jovem nordestina que vive no Rio de Janeiro, contada com lirismo e crítica social."
         },
         {
-            "id": 7,
-            "tipo": "Filme",
-            "titulo": "Percy Jackson e o Mar de Monstros",
-            "ano_adaptação": "2013",
-            "img": "img/filme2.jpg",
-            "sinopse": "Percy, Annabeth e Tyson, o meio-irmão ciclope de Percy, precisam recuperar o Velocino de Ouro para salvar as fronteiras mágicas do Acampamento Meio-Sangue, antes que a magia se esgote. Para isso, precisam viajar pelo temido Mar de Monstros.",
-            "diretor": "Thor Freudenthal",
-            "elenco": [
-                "Percy Jackson: Logan Lerman",
-                "Annabeth Chase: Alexandra Daddario",
-                "Grover Underwood: Brandon T. Jackson",
-                "Luke Castellan: Jake Abel",
-                "Tyson: Douglas Smith"
-            ]
-        },
-        {
-            "id": 8,
-            "tipo": "Série",
-            "titulo": "Percy Jackson e os Olimpianos",
-            "ano_adaptação": "2023 - ",
-            "img": "img/serie.jpg",
-            "sinopse": "A série, baseada no livro O Ladrão de Raios, acompanha a jornada do jovem Percy Jackson, que descobre ser um semideus e é acusado de roubar o raio-mestre de Zeus. Ele e seus amigos embarcam em uma perigosa missão para encontrar o verdadeiro ladrão e restaurar a paz no Olimpo.",
-            "diretor": [
-                "James Bobin",
-                "Anders Engström",
-                "Rick Riordan"
-            ],
-            "elenco": [
-                "Percy Jackson: Walker Scobell",
-                "Annabeth Chase: Leah Sava Jeffries",
-                "Grover Underwood: Aryan Simhadri",
-                "Luke Castellan: Charlie Bushnell"
-            ]
+          "titulo": "Perto do Coração Selvagem",
+          "ano_publicacao": "1943",
+          "img": "img/perto.jpg",
+          "sinopse": "Romance de estreia que revela a complexidade emocional e filosófica da protagonista Joana."
         }
-    ],
-    "personagens": [
+      ]
+    },
+    {
+      "autores": [
         {
-            "id": 9,
-            "nome": "Percy Jackson",
-            "img": "img/percy.jpg",
-            "parentesco": "Filho do deus grego Poseidon e da mortal Sally Jackson.",
-            "caracteristicas": "Tem TDAH e dislexia, traços comuns em semideuses. É leal aos seus amigos, corajoso, e tem um grande coração.",
-            "poderes": "Como filho do deus do mar, pode controlar a água, respirar debaixo d'água e se comunicar com criaturas marinhas e equinos.",
-            "jornada": "A princípio, é um garoto problemático que descobre sua verdadeira identidade. Ao longo da série, ele se torna um herói poderoso e um dos personagens mais importantes do mundo dos semideuses."
+          "id": 3,
+          "nome": "Graciliano Ramos",
+          "nacionalidade": "Brasileiro",
+          "img": "img/graciliano.jpg",
+          "biografia": "Reconhecido por sua escrita seca e direta, retratou a vida no sertão nordestino com profundidade e realismo.",
+          "obras": [
+            {
+              "titulo": "Vidas Secas",
+              "ano_publicacao": "1938",
+              "img": "img/vidassecas.jpg",
+              "sinopse": "A saga de uma família sertaneja em busca de sobrevivência, marcada pela seca e pela miséria."
+            },
+            {
+              "titulo": "São Bernardo",
+              "ano_publicacao": "1934",
+              "img": "img/saobernardo.jpg",
+              "sinopse": "A trajetória de Paulo Honório, um homem ambicioso que narra sua ascensão e queda pessoal."
+            }
+          ]
         },
         {
-            "id": 10,
-            "nome": "Annabeth Chase",
-            "img": "img/anna.jpg",
-            "parentesco": "Filha de Atena, a deusa da sabedoria, e do mortal Frederick Chase.",
-            "caracteristicas": "Extremamente inteligente, estratégica e leal, embora às vezes possa ser um pouco teimosa e orgulhosa. Ela é uma grande amante da arquitetura e sonha em ser arquiteta.",
-            "poderes": "Herda a inteligência de sua mãe, o que a torna uma estrategista nata. Possui reflexos de combate avançados e é habilidosa com diversas armas.",
-            "jornada": "Conhece Percy no Acampamento Meio-Sangue e se torna uma de suas melhores amigas e, eventualmente, sua namorada. Ela o acompanha em várias missões perigosas, utilizando sua inteligência para resolver enigmas e traçar planos."
+          "id": 4,
+          "nome": "Jorge Amado",
+          "nacionalidade": "Brasileiro",
+          "img": "img/jorgeamado.jpg",
+          "biografia": "Um dos autores mais populares do Brasil, retratou com humor e crítica social a vida na Bahia, exaltando o povo, a cultura e os conflitos sociais.",
+          "obras": [
+            {
+              "titulo": "Capitães da Areia",
+              "ano_publicacao": "1937",
+              "img": "img/capitaes.jpg",
+              "sinopse": "A história de um grupo de meninos de rua em Salvador que vivem de pequenos crimes, mas também de sonhos e solidariedade."
+            },
+            {
+              "titulo": "Gabriela, Cravo e Canela",
+              "ano_publicacao": "1958",
+              "img": "img/gabriela.jpg",
+              "sinopse": "Gabriela, uma mulher sensual e livre, transforma a vida de uma cidade marcada por coronelismo e tradições conservadoras."
+            }
+          ]
         },
         {
-            "id": 11,
-            "nome": "Grover Underwood",
-            "img": "img/grover.jpg",
-            "parentesco": "Sátiro (metade homem, metade bode)",
-            "caracteristicas": "Melhor amigo de Percy, Grover é nervoso, leal, e um protetor habilidoso. Embora muitas vezes medroso, ele se mostra corajoso quando seus amigos estão em perigo.",
-            "poderes": "É um exímio flautista e usa a música para invocar magia da floresta.",
-            "jornada": "Sua principal missão é encontrar e proteger semideuses, levando-os ao Acampamento Meio-Sangue. Ele tem um grande amor pela natureza e aspira a encontrar o deus selvagem Pã."
+          "id": 5,
+          "nome": "Manuel Bandeira",
+          "nacionalidade": "Brasileiro",
+          "img": "img/bandeira.jpg",
+          "biografia": "Poeta modernista que soube unir lirismo, simplicidade e profundidade, com temas como morte, infância e o cotidiano.",
+          "obras": [
+            {
+              "titulo": "Libertinagem",
+              "ano_publicacao": "1930",
+              "img": "img/libertinagem.jpg",
+              "sinopse": "Coletânea de poemas que marca o auge do modernismo de Bandeira, com linguagem coloquial e temas existenciais."
+            },
+            {
+              "titulo": "Estrela da Vida Inteira",
+              "ano_publicacao": "1966",
+              "img": "img/estrela.jpg",
+              "sinopse": "Antologia poética que reúne os principais poemas do autor, revelando sua trajetória lírica e humana."
+            }
+          ]
         },
         {
-            "id": 12,
-            "nome": "Thalia Grace",
-            "img": "img/thalia.jpg",
-            "parentesco": "Filha de Zeus, o rei dos deuses, e da mortal Beryl Grace.É irmã do semideus romano Jason Grace.",
-            "caracteristicas": "Uma guerreira feroz, determinada e temperamental. É extremamente leal aos amigos, mas desconfia do mundo dos deuses, principalmente de seu pai.",
-            "poderes": "Como filha de Zeus e semideusa dos Três Grandes, possui poderes de eletrocinese e atmocinese superiores aos da maioria dos outros semideuses.",
-            "jornada": "Por causa de uma profecia, ela se sacrificou para salvar seus amigos de um ataque de monstros, e Zeus a transformou em um pinheiro que protege o Acampamento Meio-Sangue. Mais tarde, é ressuscitada e se junta às Caçadoras de Ártemis."
+          "id": 6,
+          "nome": "Mário de Andrade",
+          "nacionalidade": "Brasileiro",
+          "img": "img/mario.jpg",
+          "biografia": "Figura central do modernismo brasileiro, foi escritor, crítico, musicólogo e defensor da cultura nacional.",
+          "obras": [
+            {
+              "titulo": "Macunaíma",
+              "ano_publicacao": "1928",
+              "img": "img/macunaima.jpg",
+              "sinopse": "A saga do herói sem caráter que percorre o Brasil em busca de um amuleto mágico, misturando mitos indígenas e crítica social."
+            },
+            {
+              "titulo": "Pauliceia Desvairada",
+              "ano_publicacao": "1922",
+              "img": "img/pauliceia.jpg",
+              "sinopse": "Livro de poemas que inaugura o modernismo no Brasil, com versos livres e uma visão irreverente da cidade de São Paulo."
+            }
+          ]
         },
         {
-            "id": 13,
-            "nome": "Nico di Angelo",
-            "img": "img/nico.jpg",
-            "parentesco": "Filho do deus Hades e da mortal Maria di Angelo.É irmão da semideusa grega Bianca di Angelo",
-            "caracteristicas": "Inicialmente um garoto fofo e fascinado por um jogo chamado MitoMágica, Nico se torna sombrio, solitário e amargurado após a morte de sua irmã, Bianca. No entanto, ele é profundamente leal àqueles que ama.",
-            "poderes": "Como filho de Hades, ele controla as forças do submundo, incluindo a capacidade de invocar mortos e manipular a terra. É um espadachim habilidoso e usa uma lâmina de Ferro Estígio.",
-            "jornada": "Após a morte de Bianca, ele culpa Percy e passa a vagar entre o mundo dos mortos e dos vivos, até que finalmente se reconcilia com Percy e encontra um lugar no Acampamento Meio-Sangue. Ele é abertamente gay e namora Will Solace."
+          "id": 7,
+          "nome": "Cecília Meireles",
+          "nacionalidade": "Brasileira",
+          "img": "img/cecilia.jpg",
+          "biografia": "Poeta lírica e delicada, sua obra é marcada por musicalidade, espiritualidade e reflexões sobre o tempo e a existência.",
+          "obras": [
+            {
+              "titulo": "Romanceiro da Inconfidência",
+              "ano_publicacao": "1953",
+              "img": "img/romanceiro.jpg",
+              "sinopse": "Poemas que narram os eventos da Inconfidência Mineira com lirismo e profundidade histórica."
+            },
+            {
+              "titulo": "Viagem",
+              "ano_publicacao": "1939",
+              "img": "img/viagem.jpg",
+              "sinopse": "Obra-prima da autora, com poemas que exploram o universo interior e a busca por transcendência."
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "nome": "Carlos Drummond de Andrade",
+          "nacionalidade": "Brasileiro",
+          "img": "img/drummond.jpg",
+          "biografia": "Um dos maiores poetas da língua portuguesa, sua obra mescla ironia, melancolia e crítica social com profundidade filosófica.",
+          "obras": [
+            {
+              "titulo": "Alguma Poesia",
+              "ano_publicacao": "1930",
+              "img": "img/alguma.jpg",
+              "sinopse": "Primeiro livro de Drummond, traz o famoso poema 'No meio do caminho' e marca o início de sua voz singular."
+            },
+            {
+              "titulo": "A Rosa do Povo",
+              "ano_publicacao": "1945",
+              "img": "img/rosa.jpg",
+              "sinopse": "Poemas escritos durante a Segunda Guerra Mundial, com forte crítica social e engajamento político."
+            }
+          ]
         }
-    ]
+      ]
+    }
+  ]
 }
