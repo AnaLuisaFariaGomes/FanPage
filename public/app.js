@@ -380,25 +380,27 @@ function carregaDetalhesObra() {
     ? `<p><strong>Personagens principais:</strong> ${obraEncontrada.personagens_principais.join(", ")}</p>`
     : "";
 
-  const card = `
-    <div class="col-md-8">
-      <div class="card shadow-sm">
-        <img src="${obraEncontrada.img}" class="card-img-top mx-auto d-block" alt="${obraEncontrada.titulo}">
-        <div class="card-body">
-          <h3 class="card-title">${obraEncontrada.titulo}</h3>
+  const obraHTML = `
+    <section class="obra-detalhes mb-5">
+      <div class="row align-items-center">
+        <div class="col-md-4 text-center">
+          <img src="${obraEncontrada.img}" alt="${obraEncontrada.titulo}" class="card-img-top mx-auto d-block">
+        </div>
+        <div class="col-md-8">
+          <h2 class="fw-bold mb-3">${obraEncontrada.titulo}</h2>
           <p><strong>Autor:</strong> ${autorEncontrado.nome}</p>
           <p><strong>Ano de publicação:</strong> ${obraEncontrada.ano_publicacao}</p>
           ${personagensHTML}
-          <p>${obraEncontrada.sinopse}</p>
+          <p class="mt-3">${obraEncontrada.sinopse}</p>
         </div>
       </div>
-      <div class="text-start mt-4">
-        <button class="btn btn-secondary" onclick="window.history.back()">Voltar</button>
-      </div>
+    </section>
+    <div class="text-start mt-4">
+      <button class="btn btn-secondary" onclick="window.history.back()">Voltar</button>
     </div>
   `;
 
-  container.innerHTML = card;
+  container.innerHTML = obraHTML;
 }
 
 // Página Detalhes
