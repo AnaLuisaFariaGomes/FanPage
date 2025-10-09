@@ -235,9 +235,8 @@ const dadosLiterarios = {
   ]
 };
 
-
 // JavaScript
-//Página Autores
+// Página Autores
 function carregaAutor() {
   let autoresContainer = document.getElementById("autoresContainer");
   autoresContainer.innerHTML = "";
@@ -251,10 +250,6 @@ function carregaAutor() {
           <img src="${autor.img}" class="card-img-top mx-auto d-block" alt="${autor.nome}">
           <div class="card-body">
             <h5 class="card-title">${autor.nome}</h5>
-            <p><strong>Data de nascimento:</strong> ${autor.data_nascimento}</p>
-            <p><strong>Cidade:</strong> ${autor.cidade} - ${autor.estado}</p>
-            <p><strong>Gênero de escrita:</strong> ${autor.genero_escrita}</p>
-            <p class="card-text">${autor.biografia}</p>
             <div class="text-center mt-3">
               <a href="detalhes.html?id=${autor.id}" class="btn btn-primary mt-3">Ver detalhes</a>
             </div>
@@ -262,28 +257,17 @@ function carregaAutor() {
         </div>
       </div>
     `;
-
     autoresContainer.innerHTML += card;
   }
 }
 
-//Página Obras
+// Página Obras
 function carregaObras() {
   const container = document.getElementById("obrasContainer");
   container.innerHTML = "";
 
-  for (let i = 0; i < dadosLiterarios.autores.length; i++) {
-    const autor = dadosLiterarios.autores[i];
-
-    for (let j = 0; j < autor.obras.length; j++) {
-      const obra = autor.obras[j];
-      let personagensHTML = "";
-      if (obra.personagens && obra.personagens.length > 0) {
-        personagensHTML = `
-          <p><strong>Personagens principais:</strong> ${obra.personagens.join(", ")}</p>
-        `;
-      }
-
+  for (const autor of dadosLiterarios.autores) {
+    for (const obra of autor.obras) {
       const card = `
         <div class="col-12 col-md-6 col-lg-3">
           <div class="card h-100 mb-4 shadow-sm">
@@ -291,9 +275,6 @@ function carregaObras() {
             <div class="card-body">
               <h5 class="card-title">${obra.titulo}</h5>
               <p><strong>Autor:</strong> ${autor.nome}</p>
-              <p><strong>Ano:</strong> ${obra.ano_publicacao}</p>
-              ${personagensHTML}
-              <p>${obra.sinopse}</p>
               <div class="text-center mt-3">
                 <a href="detalhes.html?id=${obra.id}" class="btn btn-primary mt-3">Ver detalhes</a>
               </div>
@@ -301,13 +282,12 @@ function carregaObras() {
           </div>
         </div>
       `;
-
       container.innerHTML += card;
     }
   }
 }
 
-//Detalhes do Autor
+// Detalhes do Autor
 function carregaDetalhes() {
   const container = document.getElementById("detalhesContainer");
   container.innerHTML = "";
@@ -321,35 +301,120 @@ function carregaDetalhes() {
     return;
   }
 
-  let obrasHTML = "";
-  for (let i = 0; i < autor.obras.length; i++) {
-    const obra = autor.obras[i];
-    let personagensHTML = "";
-    if (obra.personagens && obra.personagens.length > 0) {
-      personagensHTML = `<br><small><strong>Personagens:</strong> ${obra.personagens.join(", ")}</small>`;
-    }
-
-    obrasHTML += `
-      <li class="list-group-item">
-        <strong>${obra.titulo}</strong> (${obra.ano_publicacao})${personagensHTML}<br>
-        <small>${obra.sinopse}</small>
-      </li>
-    `;
-  }
-
-  const card = `
-    <div class="col-md-8">
-      <div class="card shadow-sm">
-        <img src="${autor.img}" class="card-img-top mx-auto d-block" alt="${autor.nome}">
-        <div class="card-body">
-          <h3 class="card-title">${autor.nome}</h3>
+  const autorHTML = `
+    <section class="autor-detalhes mb-5">
+      <div class="row align-items-center">
+        <div class="col-md-4 text-center">
+          <img src="${autor.img}" alt="${autor.nome}" class="card-img-top mx-auto d-block">
+        </div>
+        <div class="col-md-8">
+          <h2 class="fw-bold mb-3">${autor.nome}</h2>
           <p><strong>Data de nascimento:</strong> ${autor.data_nascimento}</p>
           <p><strong>Cidade natal:</strong> ${autor.cidade_nascimento} - ${autor.estado_nascimento}</p>
           <p><strong>Gênero de escrita:</strong> ${autor.genero_escrita}</p>
           <p><strong>Nacionalidade:</strong> ${autor.nacionalidade}</p>
-          <p>${autor.biografia}</p>
-          <h5 class="mt-4">Obras:</h5>
-          <ul class="list-group list-group-flush">${obrasHTML}</ul>
+          <p class="mt-3">${autor.biografia}</p>
+        </div>
+      </div>
+    </section>
+  `;
+
+  let obrasHTML = "";
+  for (let i = 0; i < autor.obras.length; i++) {
+    const obra = autor.obras[i];
+    const personagens = obra.personagens && obra.personagens.length > 0
+      ? `<p class="card-text"><small><strong>Personagens:</strong> ${obra.personagens.join(", ")}</small></p>`
+      : "";
+
+    obrasHTML += `
+      <div class="col-md-3 mb-4">
+        <div class="card h-100 shadow-sm obra-card" onclick="abrirObra(${obra.id})">
+          <img src="${obra.img}" class="card-img-top mx-auto d-block" alt="${obra.titulo}">
+          <div class="card-body">
+            <h5 class="card-title">${obra.titulo}</h5>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  const obrasSection = `
+    <section>
+      <h4 class="fw-semibold mb-3">Obras</h4>
+      <div class="row">${obrasHTML}</div>
+    </section>
+  `;
+
+  container.innerHTML = autorHTML + obrasSection + `
+    <div class="text-start mt-4">
+      <button class="btn btn-secondary" onclick="window.history.back()">Voltar</button>
+    </div>
+  `;
+}
+
+// Redireciona para a página de detalhes da obra
+function abrirObra(id) {
+  window.location.href = `detalhes.html?id=${id}`;
+}
+
+// Página de Detalhes da Obra
+function carregaDetalhesObra() {
+  const container = document.getElementById("detalhesObraContainer");
+  container.innerHTML = "";
+
+  // Verifica se o JSON está disponível
+  if (!dadosLiterarios || !Array.isArray(dadosLiterarios.autores)) {
+    container.innerHTML = "<p>Dados de autores não disponíveis.</p>";
+    return;
+  }
+
+  // Pega o ID da URL e garante que é número
+  const idParam = new URLSearchParams(window.location.search).get("id");
+  const id = idParam ? parseInt(idParam) : null;
+
+  if (!id) {
+    container.innerHTML = "<p>ID inválido.</p>";
+    return;
+  }
+
+  let obraEncontrada = null;
+  let autorEncontrado = null;
+
+  // Busca a obra e o autor correspondente
+  for (const autor of dadosLiterarios.autores) {
+    if (!Array.isArray(autor.obras)) continue;
+    for (const obra of autor.obras) {
+      if (obra.id === id) {
+        obraEncontrada = obra;
+        autorEncontrado = autor;
+        break;
+      }
+    }
+    if (obraEncontrada) break;
+  }
+
+  // Se não encontrar a obra
+  if (!obraEncontrada) {
+    container.innerHTML = "<p>Obra não encontrada.</p>";
+    return;
+  }
+
+  // Personagens principais (ou "Nenhum" se vazio)
+  const personagens = obraEncontrada.personagens_principais?.length
+    ? obraEncontrada.personagens_principais.join(", ")
+    : "Nenhum";
+
+  // Cria o card com os detalhes
+  const card = `
+    <div class="col-md-8 mx-auto">
+      <div class="card shadow-sm">
+        ${obraEncontrada.img ? `<img src="${obraEncontrada.img}" class="card-img-top mx-auto d-block" alt="${obraEncontrada.titulo}">` : ''}
+        <div class="card-body">
+          <h3 class="card-title">${obraEncontrada.titulo || "Título não disponível"}</h3>
+          <p><strong>Autor:</strong> ${autorEncontrado.nome || "Não informado"}</p>
+          <p><strong>Ano de publicação:</strong> ${obraEncontrada.ano_publicacao || "Não informado"}</p>
+          <p><strong>Personagens principais:</strong> ${personagens}</p>
+          <p>${obraEncontrada.sinopse || "Sem sinopse disponível."}</p>
         </div>
       </div>
       <div class="text-start mt-4">
@@ -361,7 +426,23 @@ function carregaDetalhes() {
   container.innerHTML = card;
 }
 
-//Detalhes da Obra
+
+
+// verifica se é autor ou obra
+document.addEventListener("DOMContentLoaded", function () {
+  const id = parseInt(new URLSearchParams(window.location.search).get("id"));
+
+  if (dadosLiterarios.autores.some(a => a.id === id)) {
+    carregaDetalhes();
+  } else if (dadosLiterarios.autores.some(a => a.obras.some(o => o.id === id))) {
+    carregaDetalhesObra();
+  } else {
+    document.getElementById("detalhesContainer").innerHTML = "<p>ID não encontrado.</p>";
+  }
+});
+
+
+// Detalhes da Obra
 function carregaDetalhesObra() {
   const container = document.getElementById("detalhesObraContainer");
   container.innerHTML = "";
@@ -391,8 +472,8 @@ function carregaDetalhesObra() {
   }
 
   let personagensHTML = "";
-  if (obraEncontrada.personagens && obraEncontrada.personagens.length > 0) {
-    personagensHTML = `<p><strong>Personagens principais:</strong> ${obraEncontrada.personagens.join(", ")}</p>`;
+  if (obraEncontrada.personagens_principais && obraEncontrada.personagens_principais.length > 0) {
+    personagensHTML = `<p><strong>Personagens principais:</strong> ${obraEncontrada.personagens_principais.join(", ")}</p>`;
   }
 
   const card = `
@@ -416,7 +497,7 @@ function carregaDetalhesObra() {
   container.innerHTML = card;
 }
 
-//Página Detalhes
+// Página Detalhes
 document.addEventListener("DOMContentLoaded", function () {
   const id = parseInt(new URLSearchParams(window.location.search).get("id"));
 

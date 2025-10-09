@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="styles.css" />
   <script src="app.js" defer></script>
 </head>
-<body class="bg-index d-flex flex-column min-vh-100">
+<body class="bg-index d-flex flex-column min-vh-100" onload="carregaAutor()">
 
   <!-- HEADER -->
   <nav class="navbar navbar-expand-lg navbar-dark shadow">
@@ -46,6 +46,10 @@
               Se você é apaixonada por livros, sabe que cada história tem o poder de nos transportar para mundos incríveis, despertar emoções e transformar pensamentos. Este site foi criado para reunir tudo que envolve o universo da leitura: autores marcantes, obras inesquecíveis, gêneros diversos e dicas para quem quer mergulhar ainda mais fundo nesse hábito tão enriquecedor. Aqui você pode descobrir novos títulos, revisitar clássicos, acompanhar lançamentos e encontrar recomendações feitas para leitores de todos os estilos. Tudo de um jeito leve, direto e pensado para quem ama ler — e quer viver cada página como se fosse única.
             </p>
       </section>
+
+      <h2>Autores: </h2>
+      <!-- Cards dinâmicos -->
+      <section id="autoresContainer" class="row g-4 justify-content-center"></section>
     </main>
   </div>
 
