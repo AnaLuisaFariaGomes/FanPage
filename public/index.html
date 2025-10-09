@@ -1,70 +1,144 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Meu Brasil Literário - Início</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
-  <script src="app.js" defer></script>
-</head>
-<body class="bg-index d-flex flex-column min-vh-100" onload="carregaAutor()">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meu Brasil Literário - Início</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        carregaAutoresDestaque();
+      });
+    </script>
+  </head>
+  <body class="bg-index d-flex flex-column min-vh-100" onload="carregaAutor()">
+    <!-- HEADER -->
+    <nav class="navbar navbar-expand-lg navbar-dark shadow">
+      <div class="container">
+        <img src="img/logo.png" class="logo" />
+        <a class="navbar-brand fw-bold" href="#">Meu Brasil Literário</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarScroll"
+          aria-controls="navbarScroll"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-  <!-- HEADER -->
-  <nav class="navbar navbar-expand-lg navbar-dark shadow">
-    <div class="container">
-      <img src="img/logo.png" class="logo">
-      <a class="navbar-brand fw-bold" href="#">Meu Brasil Literário</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse justify-content-end" id="navbarScroll">
-        <ul class="navbar-nav mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link active" href="index.html">Início</a></li>
-          <li class="nav-item"><a class="nav-link" href="autores.html">Autores</a></li>
-          <li class="nav-item"><a class="nav-link" href="obras.html">Obras</a></li>
-          <li class="nav-item">
-            <a href="login.html" class="btn btn-warning ms-lg-3 fw-semibold">Login</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- IMG -->
-  <img src="img/background.png" alt="Imagem contos brasileiros" class="img-banner">
-
-  <!-- CONTEÚDO PRINCIPAL -->
-  <div class="container my-5 flex-grow-1">
-    <main>
-      <h1 class="text-center mb-4">Bem-vindos Leitores!</h1>
-
-      <!-- Introdução -->
-      <section class="mb-5">
-            <p class="card-text">
-              Se você é apaixonada por livros, sabe que cada história tem o poder de nos transportar para mundos incríveis, despertar emoções e transformar pensamentos. Este site foi criado para reunir tudo que envolve o universo da leitura: autores marcantes, obras inesquecíveis, gêneros diversos e dicas para quem quer mergulhar ainda mais fundo nesse hábito tão enriquecedor. Aqui você pode descobrir novos títulos, revisitar clássicos, acompanhar lançamentos e encontrar recomendações feitas para leitores de todos os estilos. Tudo de um jeito leve, direto e pensado para quem ama ler — e quer viver cada página como se fosse única.
-            </p>
-      </section>
-
-      <h2>Autores: </h2>
-      <!-- Cards dinâmicos -->
-      <section id="autoresContainer" class="row g-4 justify-content-center"></section>
-    </main>
-  </div>
-
-  <!-- FOOTER -->
-  <footer class="mt-auto">
-    <nav class="navbar navbar-dark">
-      <div class="container justify-content-center py-2">
-        <span class="navbar-text small text-white">
-          &copy; 2025 Meu Brasil Literário. Todos os direitos reservados.
-        </span>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarScroll"
+        >
+          <ul class="navbar-nav mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Início</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="autores.html">Autores</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="obras.html">Obras</a>
+            </li>
+            <li class="nav-item">
+              <a href="login.html" class="btn btn-warning ms-lg-3 fw-semibold"
+                >Login</a
+              >
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
-  </footer>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    <!-- CONTEÚDO PRINCIPAL -->
+    <div class="container my-5 flex-grow-1">
+      <main>
+        <h1 class="text-center mb-4">Bem-vindos Leitores!</h1>
+
+        <!-- CARROSSEL -->
+        <section class="destaques-section container my-5">
+          <div
+            id="destaquesCarousel"
+            class="carousel slide"
+            data-bs-ride="carousel"
+          >
+            <div
+              class="carousel-inner border border-primary rounded bg-light p-4"
+              id="carouselAutores"
+            ></div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#destaquesCarousel"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon custom-arrow"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Anterior</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#destaquesCarousel"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon custom-arrow"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Próximo</span>
+            </button>
+            <div class="carousel-indicators mt-3"></div>
+          </div>
+        </section>
+
+        <!-- Introdução -->
+        <section class="mb-5">
+          <p class="card-text">
+            Se você é apaixonada por livros, sabe que cada história tem o poder
+            de nos transportar para mundos incríveis, despertar emoções e
+            transformar pensamentos. Este site foi criado para reunir tudo que
+            envolve o universo da leitura: autores marcantes, obras
+            inesquecíveis, gêneros diversos e dicas para quem quer mergulhar
+            ainda mais fundo nesse hábito tão enriquecedor. Aqui você pode
+            descobrir novos títulos, revisitar clássicos, acompanhar lançamentos
+            e encontrar recomendações feitas para leitores de todos os estilos.
+            Tudo de um jeito leve, direto e pensado para quem ama ler — e quer
+            viver cada página como se fosse única.
+          </p>
+        </section>
+
+        <h2>Autores:</h2>
+        <!-- Cards dinâmicos -->
+        <section
+          id="autoresContainer"
+          class="row g-4 justify-content-center"
+        ></section>
+      </main>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="mt-auto">
+      <nav class="navbar navbar-dark">
+        <div class="container justify-content-center py-2">
+          <span class="navbar-text small text-white">
+            &copy; 2025 Meu Brasil Literário. Todos os direitos reservados.
+          </span>
+        </div>
+      </nav>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

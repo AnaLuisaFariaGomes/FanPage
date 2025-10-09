@@ -10,6 +10,7 @@ const dadosLiterarios = {
       "estado_nascimento": "RJ",
       "img": "img/machado.png",
       "biografia": "Considerado um dos maiores escritores da literatura brasileira, fundador da Academia Brasileira de Letras.",
+      "destaque": true,
       "obras": [
         {
           "id": 101,
@@ -39,6 +40,7 @@ const dadosLiterarios = {
       "estado_nascimento": "Ucrânia (naturalizada brasileira)",
       "img": "img/clarice.jpg",
       "biografia": "Autora de obras introspectivas e poéticas, é uma das vozes mais marcantes da literatura brasileira moderna.",
+      "destaque": true,
       "obras": [
         {
           "id": 201,
@@ -68,6 +70,7 @@ const dadosLiterarios = {
       "estado_nascimento": "AL",
       "img": "img/graciliano.jpg",
       "biografia": "Reconhecido por sua escrita seca e direta, retratou a vida no sertão nordestino com profundidade e realismo.",
+      "destaque": true,
       "obras": [
         {
           "id": 301,
@@ -97,6 +100,7 @@ const dadosLiterarios = {
       "estado_nascimento": "BA",
       "img": "img/jorge.jpg",
       "biografia": "Um dos autores mais populares do Brasil, retratou com humor e crítica social a vida na Bahia.",
+      "destaque": true,
       "obras": [
         {
           "id": 401,
@@ -126,6 +130,7 @@ const dadosLiterarios = {
       "estado_nascimento": "PE",
       "img": "img/bandeira.jpg",
       "biografia": "Poeta modernista que soube unir lirismo, simplicidade e profundidade, com temas como morte, infância e o cotidiano.",
+      "destaque": true,
       "obras": [
         {
           "id": 501,
@@ -415,3 +420,42 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("detalhesContainer").innerHTML = "<p>ID não encontrado.</p>";
   }
 });
+
+//carrosel destaque
+function carregaAutoresDestaque() {
+  const container = document.getElementById("carouselAutores");
+  const indicadores = document.querySelector(".carousel-indicators");
+  container.innerHTML = "";
+  indicadores.innerHTML = "";
+
+  const autoresDestaque = dadosLiterarios.autores.filter(a => a.destaque);
+
+  for (let i = 0; i < autoresDestaque.length; i++) {
+    const autor = autoresDestaque[i];
+    const ativo = i === 0 ? "active" : "";
+
+    const slide = `
+      <div class="carousel-item ${ativo}">
+        <div class="card card-destaque shadow-sm">
+          <div class="row g-0 align-items-center">
+            <div class="col-md-4 text-center">
+              <img src="${autor.img}" class="img-fluid rounded-start p-3" alt="${autor.nome}" style="max-height: 250px; object-fit: cover;">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body bg-white p-4 rounded-end">
+                <h5 class="card-title">${autor.nome}</h5>
+                <p class="card-text">${autor.biografia.slice(0, 150)}...</p>
+                <a href="detalhes.html?id=${autor.id}" class="btn btn-primary mt-2">Ver detalhes</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    const indicador = `<button type="button" data-bs-target="#destaquesCarousel" data-bs-slide-to="${i}" class="${ativo}" aria-label="Slide ${i + 1}"></button>`;
+
+    container.innerHTML += slide;
+    indicadores.innerHTML += indicador;
+  }
+}
