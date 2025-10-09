@@ -235,16 +235,13 @@ const dadosLiterarios = {
   ]
 };
 
-// JavaScript
-// Página Autores
+/// Página Autores
 function carregaAutor() {
-  let autoresContainer = document.getElementById("autoresContainer");
+  const autoresContainer = document.getElementById("autoresContainer");
   autoresContainer.innerHTML = "";
 
-  for (let i = 0; i < dadosLiterarios.autores.length; i++) {
-    let autor = dadosLiterarios.autores[i];
-
-    let card = `
+  for (const autor of dadosLiterarios.autores) {
+    const card = `
       <div class="col-12 col-md-6 col-lg-3">
         <div class="card h-100 mb-4 shadow-sm">
           <img src="${autor.img}" class="card-img-top mx-auto d-block" alt="${autor.nome}">
@@ -320,12 +317,7 @@ function carregaDetalhes() {
   `;
 
   let obrasHTML = "";
-  for (let i = 0; i < autor.obras.length; i++) {
-    const obra = autor.obras[i];
-    const personagens = obra.personagens && obra.personagens.length > 0
-      ? `<p class="card-text"><small><strong>Personagens:</strong> ${obra.personagens.join(", ")}</small></p>`
-      : "";
-
+  for (const obra of autor.obras) {
     obrasHTML += `
       <div class="col-md-3 mb-4">
         <div class="card h-100 shadow-sm obra-card" onclick="abrirObra(${obra.id})">
@@ -357,91 +349,6 @@ function abrirObra(id) {
   window.location.href = `detalhes.html?id=${id}`;
 }
 
-// Página de Detalhes da Obra
-function carregaDetalhesObra() {
-  const container = document.getElementById("detalhesObraContainer");
-  container.innerHTML = "";
-
-  // Verifica se o JSON está disponível
-  if (!dadosLiterarios || !Array.isArray(dadosLiterarios.autores)) {
-    container.innerHTML = "<p>Dados de autores não disponíveis.</p>";
-    return;
-  }
-
-  // Pega o ID da URL e garante que é número
-  const idParam = new URLSearchParams(window.location.search).get("id");
-  const id = idParam ? parseInt(idParam) : null;
-
-  if (!id) {
-    container.innerHTML = "<p>ID inválido.</p>";
-    return;
-  }
-
-  let obraEncontrada = null;
-  let autorEncontrado = null;
-
-  // Busca a obra e o autor correspondente
-  for (const autor of dadosLiterarios.autores) {
-    if (!Array.isArray(autor.obras)) continue;
-    for (const obra of autor.obras) {
-      if (obra.id === id) {
-        obraEncontrada = obra;
-        autorEncontrado = autor;
-        break;
-      }
-    }
-    if (obraEncontrada) break;
-  }
-
-  // Se não encontrar a obra
-  if (!obraEncontrada) {
-    container.innerHTML = "<p>Obra não encontrada.</p>";
-    return;
-  }
-
-  // Personagens principais (ou "Nenhum" se vazio)
-  const personagens = obraEncontrada.personagens_principais?.length
-    ? obraEncontrada.personagens_principais.join(", ")
-    : "Nenhum";
-
-  // Cria o card com os detalhes
-  const card = `
-    <div class="col-md-8 mx-auto">
-      <div class="card shadow-sm">
-        ${obraEncontrada.img ? `<img src="${obraEncontrada.img}" class="card-img-top mx-auto d-block" alt="${obraEncontrada.titulo}">` : ''}
-        <div class="card-body">
-          <h3 class="card-title">${obraEncontrada.titulo || "Título não disponível"}</h3>
-          <p><strong>Autor:</strong> ${autorEncontrado.nome || "Não informado"}</p>
-          <p><strong>Ano de publicação:</strong> ${obraEncontrada.ano_publicacao || "Não informado"}</p>
-          <p><strong>Personagens principais:</strong> ${personagens}</p>
-          <p>${obraEncontrada.sinopse || "Sem sinopse disponível."}</p>
-        </div>
-      </div>
-      <div class="text-start mt-4">
-        <button class="btn btn-secondary" onclick="window.history.back()">Voltar</button>
-      </div>
-    </div>
-  `;
-
-  container.innerHTML = card;
-}
-
-
-
-// verifica se é autor ou obra
-document.addEventListener("DOMContentLoaded", function () {
-  const id = parseInt(new URLSearchParams(window.location.search).get("id"));
-
-  if (dadosLiterarios.autores.some(a => a.id === id)) {
-    carregaDetalhes();
-  } else if (dadosLiterarios.autores.some(a => a.obras.some(o => o.id === id))) {
-    carregaDetalhesObra();
-  } else {
-    document.getElementById("detalhesContainer").innerHTML = "<p>ID não encontrado.</p>";
-  }
-});
-
-
 // Detalhes da Obra
 function carregaDetalhesObra() {
   const container = document.getElementById("detalhesObraContainer");
@@ -453,10 +360,8 @@ function carregaDetalhesObra() {
   let obraEncontrada = null;
   let autorEncontrado = null;
 
-  for (let i = 0; i < dadosLiterarios.autores.length; i++) {
-    const autor = dadosLiterarios.autores[i];
-    for (let j = 0; j < autor.obras.length; j++) {
-      const obra = autor.obras[j];
+  for (const autor of dadosLiterarios.autores) {
+    for (const obra of autor.obras) {
       if (obra.id === id) {
         obraEncontrada = obra;
         autorEncontrado = autor;
@@ -471,10 +376,9 @@ function carregaDetalhesObra() {
     return;
   }
 
-  let personagensHTML = "";
-  if (obraEncontrada.personagens_principais && obraEncontrada.personagens_principais.length > 0) {
-    personagensHTML = `<p><strong>Personagens principais:</strong> ${obraEncontrada.personagens_principais.join(", ")}</p>`;
-  }
+  const personagensHTML = obraEncontrada.personagens_principais?.length
+    ? `<p><strong>Personagens principais:</strong> ${obraEncontrada.personagens_principais.join(", ")}</p>`
+    : "";
 
   const card = `
     <div class="col-md-8">
