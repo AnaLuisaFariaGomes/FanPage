@@ -159,6 +159,7 @@ const dadosLiterarios = {
       "cidade_nascimento": "São Paulo",
       "estado_nascimento": "SP",
       "img": "img/mario.jpg",
+      "destaque": true,
       "biografia": "Figura central do modernismo brasileiro, foi escritor, crítico, musicólogo e defensor da cultura nacional.",
       "obras": [
         {
@@ -188,6 +189,7 @@ const dadosLiterarios = {
       "cidade_nascimento": "Rio de Janeiro",
       "estado_nascimento": "RJ",
       "img": "img/cecilia.jpg",
+      "destaque": true,
       "biografia": "Poeta lírica e delicada, sua obra é marcada por musicalidade e reflexões sobre o tempo e a existência.",
       "obras": [
         {
@@ -217,6 +219,7 @@ const dadosLiterarios = {
       "cidade_nascimento": "Itabira",
       "estado_nascimento": "MG",
       "img": "img/drummond.jpg",
+      "destaque": true,
       "biografia": "Um dos maiores poetas da língua portuguesa, sua obra mescla ironia, melancolia e crítica social.",
       "obras": [
         {
@@ -444,7 +447,7 @@ function carregaAutoresDestaque() {
             <div class="col-md-8">
               <div class="card-body bg-white p-4 rounded-end">
                 <h5 class="card-title">${autor.nome}</h5>
-                <p class="card-text">${autor.biografia.slice(0, 150)}...</p>
+                <p class="card-text">${autor.biografia}</p>
                 <a href="detalhes.html?id=${autor.id}" class="btn btn-primary mt-2">Ver detalhes</a>
               </div>
             </div>
