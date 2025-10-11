@@ -243,7 +243,8 @@ const dadosLiterarios = {
   ]
 };
 
-/// Página Autores
+//JavaScript
+// Página Autores
 function carregaAutor() {
   const autoresContainer = document.getElementById("autoresContainer");
   autoresContainer.innerHTML = "";
@@ -412,15 +413,29 @@ function carregaDetalhesObra() {
 }
 
 // Página Detalhes
+function getTypeID(id){
+  if(dadosLiterarios.autores.some(a => a.id === id))
+    return "autor";
+  if(dadosLiterarios.autores.some(a => a.obras.some(o => o.id === id)))
+    return "obra";
+  return "desconhecido";
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   const id = parseInt(new URLSearchParams(window.location.search).get("id"));
+  const type = getTypeID(id)
 
-  if (dadosLiterarios.autores.some(a => a.id === id)) {
-    carregaDetalhes();
-  } else if (dadosLiterarios.autores.some(a => a.obras.some(o => o.id === id))) {
-    carregaDetalhesObra();
-  } else {
-    document.getElementById("detalhesContainer").innerHTML = "<p>ID não encontrado.</p>";
+  const container = document.getElementById("detalhesContainer");
+
+  switch (type){
+    case "autor":
+      carregaDetalhes();
+      break;
+    case "obra":
+      carregaDetalhesObra();
+      break;
+    default:
+      container.innerHTML = "<p>ID não encontrado.</p>";
   }
 });
 
