@@ -58,45 +58,48 @@
       </div>
     </nav>
 
-    <!-- CONTEÚDO PRINCIPAL -->
-    <div class="container my-5 flex-grow-1">
-      <main>
-        <!-- CARROSSEL -->
-        <section class="destaques-section container">
-          <div
-            id="destaquesCarousel"
-            class="carousel slide"
-            data-bs-ride="carousel"
-          >
-            <div class="carousel-inner" id="carouselAutores"></div>
-            <button
-              class="carousel-control-prev"
-              type="button"
-              data-bs-target="#destaquesCarousel"
-              data-bs-slide="prev"
-            >
-              <span
-                class="carousel-control-prev-icon custom-arrow"
-                aria-hidden="true"
-              ></span>
-              <span class="visually-hidden">Anterior</span>
-            </button>
-            <button
-              class="carousel-control-next"
-              type="button"
-              data-bs-target="#destaquesCarousel"
-              data-bs-slide="next"
-            >
-              <span
-                class="carousel-control-next-icon custom-arrow"
-                aria-hidden="true"
-              ></span>
-              <span class="visually-hidden">Próximo</span>
-            </button>
-            <div class="carousel-indicators mt-3"></div>
-          </div>
-        </section>
+    <!-- CARROSSEL -->
+    <section class="destaques-section">
+      <div
+        id="destaquesCarousel"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-inner" id="carouselAutores"></div>
 
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#destaquesCarousel"
+          data-bs-slide="prev"
+        >
+          <span
+            class="carousel-control-prev-icon custom-arrow"
+            aria-hidden="true"
+          ></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#destaquesCarousel"
+          data-bs-slide="next"
+        >
+          <span
+            class="carousel-control-next-icon custom-arrow"
+            aria-hidden="true"
+          ></span>
+          <span class="visually-hidden">Próximo</span>
+        </button>
+
+        <div class="carousel-indicators mt-3"></div>
+      </div>
+    </section>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <div class="container-fluid px-5 py-4">
+      <main>
         <!-- Introdução -->
         <section class="mb-5">
           <h1 class="text-center mb-4">Bem-vindos Leitores!</h1>
@@ -128,20 +131,21 @@
               <div class="col-md-6">
                 <h5><strong>Sobre</strong></h5>
                 <p>
-                  Este site apresenta autores e obras literárias brasileiras. Foi criado como parte de um projeto de D.I.W.
+                  Este site apresenta autores e obras literárias brasileiras.
+                  Foi criado como parte de um projeto de D.I.W.
                 </p>
               </div>
 
               <div class="col-md-6 d-flex align-items-start gap-4">
                 <img
                   src="img/aluna_ana.jpg"
-                  style="max-width: 90px; height: auto; border-radius: 10px;"
+                  style="max-width: 90px; height: auto; border-radius: 10px"
                 />
                 <div>
                   <h5><strong>Autora</strong></h5>
                   <ul class="list-unstyled">
                     <li><strong>Aluno:</strong> Ana Luísa Faria Gomes</li>
-                    <li><strong>Curso:</strong> Sistemas de Informação</li>
+                    <li><strong>Curso:</strong> Sistemas de Informação - 1° semestre</li>
                   </ul>
                 </div>
               </div>

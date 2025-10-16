@@ -244,12 +244,15 @@ const dadosLiterarios = {
 };
 
 //JavaScript
-// Página Autores
+//cards responsivos das obras
 function carregaAutor() {
   const autoresContainer = document.getElementById("autoresContainer");
+  if (!autoresContainer || !dadosLiterarios || !dadosLiterarios.autores) return;
+
   autoresContainer.innerHTML = "";
 
-  for (const autor of dadosLiterarios.autores) {
+  for (let i = 0; i < dadosLiterarios.autores.length; i++) {
+    const autor = dadosLiterarios.autores[i];
     const card = `
       <div class="col-12 col-md-6 col-lg-3">
         <div class="card h-100 mb-4 shadow-sm">
@@ -267,13 +270,15 @@ function carregaAutor() {
   }
 }
 
-// Página Obras
+//cards responsivos das obras
 function carregaObras() {
   const container = document.getElementById("obrasContainer");
   container.innerHTML = "";
 
-  for (const autor of dadosLiterarios.autores) {
-    for (const obra of autor.obras) {
+  for (let i = 0; i < dadosLiterarios.autores.length; i++) {
+    const autor = dadosLiterarios.autores[i];
+    for (let j = 0; j < autor.obras.length; j++) {
+      const obra = autor.obras[j];
       const card = `
         <div class="col-12 col-md-6 col-lg-3">
           <div class="card h-100 mb-4 shadow-sm">
@@ -293,21 +298,33 @@ function carregaObras() {
   }
 }
 
-// Detalhes do Autor
+//mostra os detalhes do autor
 function carregaDetalhes() {
   const container = document.getElementById("detalhesContainer");
+  if (!container) return;
   container.innerHTML = "";
 
   const urlParams = new URLSearchParams(window.location.search);
   const id = parseInt(urlParams.get("id"));
-  const autor = dadosLiterarios.autores.find(a => a.id === id);
+  if (isNaN(id)) {
+    container.innerHTML = "<p>ID inválido.</p>";
+    return;
+  }
+
+  let autor = null;
+  for (let i = 0; i < dadosLiterarios.autores.length; i++) {
+    if (dadosLiterarios.autores[i].id === id) {
+      autor = dadosLiterarios.autores[i];
+      break;
+    }
+  }
 
   if (!autor) {
     container.innerHTML = "<p>Autor não encontrado.</p>";
     return;
   }
 
-  const autorHTML = `
+  let autorHTML = `
     <section class="autor-detalhes mb-5">
       <div class="row align-items-center">
         <div class="col-md-4 text-center">
@@ -326,7 +343,8 @@ function carregaDetalhes() {
   `;
 
   let obrasHTML = "";
-  for (const obra of autor.obras) {
+  for (let j = 0; j < autor.obras.length; j++) {
+    const obra = autor.obras[j];
     obrasHTML += `
       <div class="col-md-3 mb-4">
         <div class="card h-100 shadow-sm obra-card" onclick="abrirObra(${obra.id})">
@@ -353,12 +371,12 @@ function carregaDetalhes() {
   `;
 }
 
-// Redireciona para a página de detalhes da obra
+//abre a pagina de detalhes da obra
 function abrirObra(id) {
   window.location.href = `detalhes.html?id=${id}`;
 }
 
-// Detalhes da Obra
+//mostra os detalhes da obra
 function carregaDetalhesObra() {
   const container = document.getElementById("detalhesObraContainer");
   container.innerHTML = "";
@@ -369,8 +387,10 @@ function carregaDetalhesObra() {
   let obraEncontrada = null;
   let autorEncontrado = null;
 
-  for (const autor of dadosLiterarios.autores) {
-    for (const obra of autor.obras) {
+  for (let i = 0; i < dadosLiterarios.autores.length; i++) {
+    const autor = dadosLiterarios.autores[i];
+    for (let j = 0; j < autor.obras.length; j++) {
+      const obra = autor.obras[j];
       if (obra.id === id) {
         obraEncontrada = obra;
         autorEncontrado = autor;
@@ -385,9 +405,10 @@ function carregaDetalhesObra() {
     return;
   }
 
-  const personagensHTML = obraEncontrada.personagens_principais?.length
-    ? `<p><strong>Personagens principais:</strong> ${obraEncontrada.personagens_principais.join(", ")}</p>`
-    : "";
+  let personagensHTML = "";
+  if (obraEncontrada.personagens_principais && obraEncontrada.personagens_principais.length > 0) {
+    personagensHTML = `<p><strong>Personagens principais:</strong> ${obraEncontrada.personagens_principais.join(", ")}</p>`;
+  }
 
   const obraHTML = `
     <section class="obra-detalhes mb-5">
@@ -412,32 +433,36 @@ function carregaDetalhesObra() {
   container.innerHTML = obraHTML;
 }
 
-// Página Detalhes
-function getTypeID(id){
-  if(dadosLiterarios.autores.some(a => a.id === id))
-    return "autor";
-  if(dadosLiterarios.autores.some(a => a.obras.some(o => o.id === id)))
-    return "obra";
+//verifica pelo id se se trata de um autor ou de uma obra
+function verificaTipoID(id) {
+  for (let i = 0; i < dadosLiterarios.autores.length; i++) {
+    if (dadosLiterarios.autores[i].id === id) {
+      return "autor";
+    }
+    for (let j = 0; j < dadosLiterarios.autores[i].obras.length; j++) {
+      if (dadosLiterarios.autores[i].obras[j].id === id) {
+        return "obra";
+      }
+    }
+  }
   return "desconhecido";
 }
 
+//DOM pag. detalhes
 document.addEventListener("DOMContentLoaded", function () {
   const id = parseInt(new URLSearchParams(window.location.search).get("id"));
-  const type = getTypeID(id)
-
+  const type = verificaTipoID(id);
   const container = document.getElementById("detalhesContainer");
 
-  switch (type){
-    case "autor":
-      carregaDetalhes();
-      break;
-    case "obra":
-      carregaDetalhesObra();
-      break;
-    default:
-      container.innerHTML = "<p>ID não encontrado.</p>";
+  if (type === "autor") {
+    carregaDetalhes();
+  } else if (type === "obra") {
+    carregaDetalhesObra();
+  } else {
+    container.innerHTML = "<p>ID não encontrado.</p>";
   }
 });
+
 
 //carrosel destaque
 function carregaAutoresDestaque() {
@@ -446,21 +471,32 @@ function carregaAutoresDestaque() {
   container.innerHTML = "";
   indicadores.innerHTML = "";
 
-  const autoresDestaque = dadosLiterarios.autores.filter(a => a.destaque);
+  const autoresDestaque = [];
+  for (let i = 0; i < dadosLiterarios.autores.length; i++) {
+    const autor = dadosLiterarios.autores[i];
+    if (autor.destaque === true) {
+      autoresDestaque.push(autor);
+    }
+  }
 
   for (let i = 0; i < autoresDestaque.length; i++) {
     const autor = autoresDestaque[i];
-    const ativo = i === 0 ? "active" : "";
+    let ativo = "";
+    if (i === 0) {
+      ativo = "active";
+    } else {
+      ativo = "";
+    }
 
     const slide = `
       <div class="carousel-item ${ativo}">
         <div class="card card-destaque shadow-sm">
           <div class="row g-0 align-items-center">
-            <div class="col-md-4 text-center">
-              <img src="${autor.img}" class="img-fluid rounded-start p-3" alt="${autor.nome}" style="max-height: 250px; object-fit: cover;">
+            <div class="col-md-4 text-center d-flex justify-content-center align-items-center">
+              <img src="${autor.img}" class="img-fluid rounded-start" alt="${autor.nome}" style="max-height: 250px; object-fit: cover;">
             </div>
-            <div class="col-md-8">
-              <div class="card-body bg-white p-4 rounded-end">
+            <div class="col-md-8 d-flex align-items-center">
+              <div class="card-body bg-white p-2 rounded-end">
                 <h5 class="card-title">${autor.nome}</h5>
                 <p class="card-text">${autor.biografia}</p>
                 <a href="detalhes.html?id=${autor.id}" class="btn btn-primary mt-2">Ver detalhes</a>
