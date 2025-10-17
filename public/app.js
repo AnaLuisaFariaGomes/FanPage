@@ -254,13 +254,13 @@ function carregaAutor() {
   for (let i = 0; i < dadosLiterarios.autores.length; i++) {
     const autor = dadosLiterarios.autores[i];
     const card = `
-      <div class="col-12 col-md-6 col-lg-3">
+      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
         <div class="card h-100 mb-4 shadow-sm">
-          <img src="${autor.img}" class="card-img-top mx-auto d-block" alt="${autor.nome}">
-          <div class="card-body">
-            <h5 class="card-title">${autor.nome}</h5>
-            <div class="text-center mt-3">
-              <a href="detalhes.html?id=${autor.id}" class="btn btn-primary mt-3">Ver detalhes</a>
+          <img src="${autor.img}" class="card-img-top mx-auto d-block" alt="${autor.nome}" style="max-height: 150px; object-fit: cover;">
+          <div class="card-body p-2">
+            <h5 class="card-title text-center mb-2">${autor.nome}</h5>
+            <div class="text-center mt-2">
+              <a href="detalhes.html?id=${autor.id}" class="btn btn-primary btn-sm">Ver detalhes</a>
             </div>
           </div>
         </div>
@@ -280,14 +280,14 @@ function carregaObras() {
     for (let j = 0; j < autor.obras.length; j++) {
       const obra = autor.obras[j];
       const card = `
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
           <div class="card h-100 mb-4 shadow-sm">
-            <img src="${obra.img}" class="card-img-top mx-auto d-block" alt="${obra.titulo}">
-            <div class="card-body">
-              <h5 class="card-title">${obra.titulo}</h5>
-              <p><strong>Autor:</strong> ${autor.nome}</p>
-              <div class="text-center mt-3">
-                <a href="detalhes.html?id=${obra.id}" class="btn btn-primary mt-3">Ver detalhes</a>
+            <img src="${obra.img}" class="card-img-top mx-auto d-block" alt="${obra.titulo}" style="max-height: 150px; object-fit: cover;">
+            <div class="card-body p-2">
+              <h5 class="card-title text-center mb-2">${obra.titulo}</h5>
+              <p class="text-center mb-2"><strong>Autor:</strong> ${autor.nome}</p>
+              <div class="text-center mt-2">
+                <a href="detalhes.html?id=${obra.id}" class="btn btn-primary btn-sm">Ver detalhes</a>
               </div>
             </div>
           </div>
@@ -346,7 +346,7 @@ function carregaDetalhes() {
   for (let j = 0; j < autor.obras.length; j++) {
     const obra = autor.obras[j];
     obrasHTML += `
-      <div class="col-md-3 mb-4">
+      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
         <div class="card h-100 shadow-sm obra-card" onclick="abrirObra(${obra.id})">
           <img src="${obra.img}" class="card-img-top mx-auto d-block" alt="${obra.titulo}">
           <div class="card-body">
@@ -493,7 +493,7 @@ function carregaAutoresDestaque() {
         <div class="card card-destaque shadow-sm">
           <div class="row g-0 align-items-center">
             <div class="col-md-4 text-center d-flex justify-content-center align-items-center">
-              <img src="${autor.img}" class="img-fluid rounded-start" alt="${autor.nome}" style="max-height: 250px; object-fit: cover;">
+              <img src="${autor.img}" class="img-fluid rounded-start" alt="${autor.nome}" style="max-height: 350px; object-fit: cover;">
             </div>
             <div class="col-md-8 d-flex align-items-center">
               <div class="card-body bg-white p-2 rounded-end">
